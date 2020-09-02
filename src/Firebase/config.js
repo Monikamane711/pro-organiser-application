@@ -1,13 +1,13 @@
 import firebase from 'firebase';
 var firebaseConfig = {
-  apiKey: "AIzaSyCHQOsYXS_cJ0wFXUxJZpPRVnj06_EYe1M",
-  authDomain: "pro-organiser-application.firebaseapp.com",
-  databaseURL: "https://pro-organiser-application.firebaseio.com",
-  projectId: "pro-organiser-application",
-  storageBucket: "pro-organiser-application.appspot.com",
-  messagingSenderId: "276169333157",
-  appId: "1:276169333157:web:b01fe8d29bf765f5fd304c",
-  measurementId: "G-35C0ZMH5BJ"
+  apiKey: "AIzaSyC07A467Qg5hrJz-ARIpwoNqHS249IhP1I",
+  authDomain: "pro-organiser-applicatio-1d507.firebaseapp.com",
+  databaseURL: "https://pro-organiser-applicatio-1d507.firebaseio.com",
+  projectId: "pro-organiser-applicatio-1d507",
+  storageBucket: "pro-organiser-applicatio-1d507.appspot.com",
+  messagingSenderId: "514449162776",
+  appId: "1:514449162776:web:f4c330ab306f3e13fcf96d",
+  measurementId: "G-V69BK32DBC"
 };
   
 // Initialize Firebase

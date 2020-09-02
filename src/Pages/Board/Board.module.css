@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color:#2f51a0;
+    color:#000080;
   }
    .containerHeader button {
     font-size: 14px;
@@ -105,7 +105,7 @@
     color: white;
 }
   .column > * {
-    background-color: #4BCFFA;
+    background-color: #C0C0C0;
     color: #333;
     padding: 0 10px;
     

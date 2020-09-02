@@ -4,7 +4,7 @@
 }
 p{
     font-size: 29px;
-    color:#2f51a0;
+    color:#000080;
 }
 .fields{
     width:95%;
@@ -23,7 +23,7 @@ label{
     margin-top: 10px;
     height:50px;
     width:90px;
-    background-color: #2f51a0;
+    background-color: #000080;
     border-radius: 5px;
     font-size: 16px;
     color:white;
