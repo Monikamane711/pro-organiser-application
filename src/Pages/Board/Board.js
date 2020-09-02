@@ -1,8 +1,8 @@
 import React, { useState,useEffect } from 'react';
 import styles from './Board.module.css';
-import {addColumn,getColumns,deleteColumn,con2,updateColumn} from '../../Functions/columnFunction'; 
 import {getBoard,deleteBoard,con1} from '../../Functions/boardFunction'; 
-import Loader from '../Modals/Loader/Loader';
+import {addColumn,getColumns,deleteColumn,con2,updateColumn} from '../../Functions/columnFunction'
+import Loader from '../Modals/Loader/Loader'; 
 import * as shortid from 'shortid';
 import CreateColumnModal from '../Modals/CreateColumnModal/CreateColumnModal'
 import CreateCard from '../Modals/CreateCard/CreateCard';
@@ -30,7 +30,7 @@ export default function Board (props){
         })();
       }, [props.match.params.boardid]);
 
-    //Function to close Modals
+   
     const closeColumnModal=()=>{
         setColumnModal(false);
         
@@ -38,7 +38,7 @@ export default function Board (props){
     const closeCardModal=()=>{
         setCardModal(false);
     }
-    //Function to Add column in Firestore
+  
     const handleAddCloumn=(columnName) =>{
         const newColumn = {
           boardId: boardDetails.id,
@@ -62,7 +62,7 @@ export default function Board (props){
         setCardAdd(true);
         
       }
-     //Function to Add Card in Firestore
+
     async function handleAddCard(card){
       try
       {
@@ -83,7 +83,7 @@ export default function Board (props){
       }
 
     }  
-     //Function to delete Board from Firestore
+   
      async function deleteBoardHandler() {
         if (window.confirm('Are you sure you want to delete the board?'))
          {
@@ -94,7 +94,7 @@ export default function Board (props){
           }
         }
       } 
-    //Function to delete column from Firestore
+   
     async function deleteColumnHandler(column){
       const newColumnAfterDelete=columns
       .filter(x=>x.id!==column.id)
@@ -105,14 +105,14 @@ export default function Board (props){
       })
       .catch(error=>alert(error))
     }
-    //Function to perform Edit Card
+
     function cardEdit(card,column){
       setSelectedColumn(column);
       setCardModal(true);
       setEditCard(card);
       setCardAdd(false);
     }
-    //Function to card Edit
+  
     async function handleCardEdit(x){
       try {
         const card = { id: editCard.id, ...x };
@@ -133,7 +133,7 @@ export default function Board (props){
       }
 
     }
-    //Function to Card Handle Archive 
+   
     async function cardArchive(card, column) {
       try {
         card.isArchive = true;
@@ -148,7 +148,7 @@ export default function Board (props){
         alert(error);
       }
     }
-    //Function for Drag and Drop of Cards
+ 
     async function dragFunc(ev,newColumn){
       try {
         const card = JSON.parse(ev.dataTransfer.getData('card'));
@@ -190,6 +190,7 @@ export default function Board (props){
                 <div className={styles.columns}>
                 {columns.map(x=>(
                 <div onDrop={(e)=>dragFunc(e,x)} onDragOver={(e)=>e.preventDefault()} key={x.name} className={styles.column}>
+
                 <header>
                 {x.name}
                 <div className={styles.trash}>

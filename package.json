@@ -5,6 +5,7 @@
   "dependencies": {
     "cra-template": "1.0.3",
     "firebase": "^7.16.0",
+    "font-awesome": "^4.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",

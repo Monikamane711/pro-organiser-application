@@ -1,18 +1,16 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Home.module.css";
 import { Link } from "react-router-dom";
 import { getBoards } from "../../Functions/boardFunction";
 import Loader from "../Modals/Loader/Loader";
-import {AuthContext} from '../../Context/Authentication';
 
 function Home() {
-  const { currentUser } = useContext(AuthContext);
+  
   const [loading, setLoading] = useState(true);
   const [boardData, setBoardData] = useState([]);
 
   useEffect(() => {
-    //Function is defined in Function.js
-    getBoards(currentUser.email)
+    getBoards()
       .then((boardData) => {
         setBoardData(boardData);
         setLoading(false);
@@ -20,7 +18,7 @@ function Home() {
       .catch(() => {
         setBoardData([]);
       });
-  }, [currentUser]);
+  }, []);
 
   return (
     <>
@@ -28,15 +26,15 @@ function Home() {
         <Loader />
       ) : (
         <>
-          <p className={styles.para}>Boards</p>
+          <p className={styles.bhead}>Boards</p>
           {boardData.length === 0 && (
-            <p className={styles.emptyMsg}>
-              You haven't created any boards.Kindly click on the 'Create Board'
+            <p className={styles.noboardMsg}>
+              You haven't created any boards. Kindly click on the 'Create Board'
               button in the navigation bar to create a board.
             </p>
           )}
 
-          <div className={styles.ctrBoard}>
+          <div className={styles.Boardlink}>
             {boardData.map((x) => (
               <Link
                 className={styles.btnBoard}

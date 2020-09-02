@@ -1,12 +1,10 @@
 import React,{useState} from 'react';
 import styles from './IndividualCard.module.css';
-
 import {CardDetailModal} from './CardDetailModal/CardDetailModal';
 
 
-
-
 function IndividualCard({card,board,column,handleEdit,handleArchive}) {
+
   const months = [
     'January',
     'Febuary',
@@ -24,9 +22,9 @@ function IndividualCard({card,board,column,handleEdit,handleArchive}) {
   
    const convertDate = date => {
     return `${date.getDate()} ${months[date.getMonth()]}, ${date.getFullYear()}`;
-  };
-
-function TeamRetreival({name}) {
+  }; 
+   
+  function TeamRetreival({name}) {
     
     const arr = name.split(' ');
     let abbr = '';
@@ -35,8 +33,6 @@ function TeamRetreival({name}) {
     });
     return <div className={styles.circle}>{abbr}</div>;
 }
-
-
 
   const [cardDetailModal,setCardDetailModal]=useState(false);
   const members = card.teamMembers.map(name => <TeamRetreival name={name} key={name} />);
@@ -94,7 +90,6 @@ function TeamRetreival({name}) {
       </CardDetailModal>
     
   );
-  //Function to call Drag Start of Card
 
   function dragStart(event,card){
     event.dataTransfer.setData("card",JSON.stringify(card));
@@ -103,12 +98,12 @@ function TeamRetreival({name}) {
     return (
         <>
         
-         <li
+          <li
           draggable="true"
           onDragStart={(e)=>dragStart(e,card)}
           className={styles.item}
           onClick={()=>setCardDetailModal(true)}
-        >
+        > 
         <div className={styles.text}>{card.title}</div>
         <div className={styles.actions}>
           <div className={styles.actionBtn}>
@@ -126,8 +121,9 @@ function TeamRetreival({name}) {
           
           {cardDetailModal&&detailsModal}
         
-        </>
+        </>   
     )
-}
+
+  }
 
 export default IndividualCard

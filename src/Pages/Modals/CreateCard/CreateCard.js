@@ -21,12 +21,12 @@ function CreateCard(props) {
           
         }
       }, [isAdd, card]);
-    //Function to get Team members
+    
     const teamHandler=(e)=>{
         const values = [...e.target.selectedOptions].map(x => x.value);
         setCardMembers(values);
     }
-    //Function to check due date
+    
     const dueDate=(e)=>{
         const today = new Date().toISOString().slice(0,10);
         if(e.target.value<today){
@@ -37,7 +37,7 @@ function CreateCard(props) {
         }
         
     }
-    //Function to add Card Data in Database
+
     function addCardHandler(e){
         e.preventDefault();
         const card = createCard(cardDueDate,cardTitle,cardMembers,cardDesc);
@@ -85,11 +85,17 @@ function CreateCard(props) {
                         </div>
                 <div className={styles.cardDesc}>
                 <p id={styles.ptag}>Add the description for your task</p> 
-                <input value={cardDesc} required onChange={(e)=>setCardDesc(e.target.value)} type="text" id={styles.description} placeholder="eg.Add your description here"></input>  
+                <input value={cardDesc} required onChange={(e)=>setCardDesc(e.target.value)} 
+                       type="text" id={styles.description} 
+                       placeholder="eg.Add your description here">
+                </input>  
                 </div>
                 <div className={styles.cardDate}>
                 <p id={styles.ptag}>Select the due date for this task</p>   
-                <input value={cardDueDate} required onChange={dueDate} type="date" id={styles.due_date}></input>
+                <input value={cardDueDate} required onChange={dueDate} 
+                       type="date" 
+                       id={styles.due_date}>
+                </input>
                 </div>
                 <div className={styles.cardBtn}>
                 {(props.isAdd)?

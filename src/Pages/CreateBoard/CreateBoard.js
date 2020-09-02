@@ -1,27 +1,25 @@
-import React, { useState,useContext } from "react";
+import React, { useState } from "react";
 import styles from "./CreateBoard.module.css";
 import { addBoard } from "../../Functions/boardFunction";
 import Loader from "../Modals/Loader/Loader";
-import {AuthContext} from '../../Context/Authentication';
 
 function CreateBoard(props) {
-  const { currentUser } = useContext(AuthContext);
+  
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [members, setMembers] = useState("");
   const [type, setType] = useState("");
 
-  //Funtion to add Board details to Database
+
   const saveBoard = (e) => {
     e.preventDefault();
     const team = members.split(",").map((x) => x.trim());
     const boardDetails = {
-      user: currentUser.email,
       boardName: name,
       teamMembers: team,
       boardType: type,
     };
-    //Functon defined separately in Functions.js
+   
     addBoard(boardDetails)
       .then((created) => {
         if (created) {
@@ -41,10 +39,10 @@ function CreateBoard(props) {
       {loading ? (
         <Loader />
       ) : (
-        <div className={styles.ctr}>
+        <div className={styles.head}>
           <p>Create a Board</p>
           <form onSubmit={saveBoard}>
-            <label htmlFor="name">Enter a name for your Board</label>
+            <label htmlFor="name">Enter a name for your board</label>
             <input
               required
               className={styles.fields}
@@ -67,7 +65,7 @@ function CreateBoard(props) {
               }}
               placeholder="Add your Team (separated by commas)"
             ></input>
-            <label htmlFor="type">Enter the type of your Board</label>
+            <label htmlFor="type">Enter the type of your board</label>
             <input
               required
               className={styles.fields}

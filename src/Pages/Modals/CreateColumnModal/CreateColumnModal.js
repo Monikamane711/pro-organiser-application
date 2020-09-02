@@ -4,7 +4,7 @@ import styles from "./CreateColumnModal.module.css";
 
 function CreateColumnModal(props) {
   const [colName, setColName] = useState("");
-  //Function to call AddColumn function in parent Board
+ 
   const addColumnHandler = (e) => {
     e.preventDefault();
     if (!colName) {
@@ -15,17 +15,19 @@ function CreateColumnModal(props) {
     }
     
   };
+
+
   return (
     <>
       <Backdrop />
       <div className={styles.colModal}>
         <div className={styles.colHeader}>
           <span className={styles.top}>Add Column</span>
-          <button
+          <button 
             onClick={() => props.closeColumnModal()}
             className={styles.closebtn}
           >
-            x
+            X
           </button>
         </div>
         <div className={styles.colField}>
@@ -34,7 +36,7 @@ function CreateColumnModal(props) {
             onChange={(e) => setColName(e.target.value)}
             type="text"
             className={styles.column_names}
-            id="column_names"
+            id="column_name"
           ></input>
         </div>
         <div className={styles.colBtn}>
